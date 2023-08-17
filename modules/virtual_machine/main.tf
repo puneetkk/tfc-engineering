@@ -17,11 +17,6 @@ resource "azurerm_linux_virtual_machine" "vm" {
     version   = "latest"
   }
 
-  os_profile {
-    computer_name  = "tfengghost"
-    admin_username = var.admin_username
-  }
-
   admin_username = var.admin_username
   admin_password = var.admin_password
 

@@ -45,5 +45,5 @@ module "virtual_machine" {
   resource_group_name   = module.resource_group.resource_group_name
   admin_username        = var.admin_username
   admin_password        = var.admin_password
-  network_interface_ids = [module.network.nic.nic_id]
+  network_interface_ids = [module.network.nic_id]
 }

@@ -30,6 +30,7 @@ module "resource_group" {
 
 module "network" {
   source               = "./modules/network"
+  location              = var.location
   virtual_network_name = var.virtual_network_name
   virtual_network_cidr = var.virtual_network_cidr
   subnet_name          = var.subnet_name

@@ -9,6 +9,12 @@ resource "azurerm_linux_virtual_machine" "vm" {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-focal"
+    sku       = "20_04-lts-gen2"
+    version   = "latest"
+  }
 
   os_profile {
     computer_name  = "tfengghost"
@@ -16,12 +22,6 @@ resource "azurerm_linux_virtual_machine" "vm" {
     linux_config {
       disable_password_authentication = false
     }
-  }
-  source_image_reference {
-    publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-focal"
-    sku       = "20_04-lts-gen2"
-    version   = "latest"
   }
 
   admin_username = var.admin_username

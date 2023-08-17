@@ -10,6 +10,13 @@ resource "azurerm_linux_virtual_machine" "vm" {
     storage_account_type = "Standard_LRS"
   }
 
+  os_profile {
+    computer_name  = "tfengghost"
+    admin_username = var.admin_username
+    linux_config {
+      disable_password_authentication = false
+    }
+  }
   source_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-focal"
@@ -20,7 +27,4 @@ resource "azurerm_linux_virtual_machine" "vm" {
   admin_username = var.admin_username
   admin_password = var.admin_password
 
-  os_profile_linux_config {
-    disable_password_authentication = false
-  }
 }

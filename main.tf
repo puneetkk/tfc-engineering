@@ -7,6 +7,16 @@ terraform {
   }
 }
 
+#Added Backend
+terraform {
+  backend "remote" {
+    organization = "dev-no-ops-world"
+    workspaces {
+      name = "tfc-engineering"
+    }
+  }
+}
+
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
   features {}

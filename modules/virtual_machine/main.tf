@@ -3,7 +3,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   location            = var.location
   resource_group_name = var.resource_group_name
   network_interface_ids = var.network_interface_ids
-  size = "Standard_D2s_v3"
+  size = "Standard_D4s_v3"
   disable_password_authentication = false
 
   os_disk {

@@ -34,14 +34,14 @@ module "network" {
   virtual_network_cidr = var.virtual_network_cidr
   subnet_name          = var.subnet_name
   subnet_cidr          = var.subnet_cidr
-  resource_group_name  = module.resource_group.name
+  resource_group_name  = module.resource_group.resource_group_name
 }
 
 module "virtual_machine" {
   source                = "./modules/virtual_machine"
   virtual_machine_name  = var.virtual_machine_name
   location              = var.location
-  resource_group_name   = module.resource_group.name
+  resource_group_name   = module.resource_group.resource_group_name
   admin_username        = var.admin_username
   admin_password        = var.admin_password
   network_interface_ids = [module.network.subnet_id]

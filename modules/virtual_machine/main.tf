@@ -4,6 +4,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   resource_group_name = var.resource_group_name
   network_interface_ids = var.network_interface_ids
   size = "Standard_D2s_v3"
+  disable_password_authentication = false
 
   os_disk {
     caching              = "ReadWrite"
@@ -19,9 +20,6 @@ resource "azurerm_linux_virtual_machine" "vm" {
   os_profile {
     computer_name  = "tfengghost"
     admin_username = var.admin_username
-    linux_config {
-      disable_password_authentication = false
-    }
   }
 
   admin_username = var.admin_username

@@ -3,6 +3,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   location            = var.location
   resource_group_name = var.resource_group_name
   network_interface_ids = var.network_interface_ids
+  size = "Standard_D2s_v3"
 
   os_disk {
     caching              = "ReadWrite"
@@ -11,8 +12,8 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
   source_image_reference {
     publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
+    offer     = "0001-com-ubuntu-server-focal"
+    sku       = "20_04-lts-gen2"
     version   = "latest"
   }
 
